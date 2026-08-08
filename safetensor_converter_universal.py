@@ -34,6 +34,9 @@ def convert_to_safetensors(filepath, unsafe_load=False):
         elif 'state_dict' in weights:
             print("Found a 'state_dict' key. Using its contents.")
             weights = weights['state_dict']
+        elif 'params_ema' in weights:
+            print("Found 'params_ema'. Using its contents.")
+            weights = weights['params_ema']
         # ------------------------------------
 
         final_weights = {}
